@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AFTERGLOW — осенние каникулы</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap');
+:root{--bg:#130e0d;--panel:#201513;--panel2:#291916;--cream:#f4e6d0;--muted:#b59a87;--orange:#ff702e;--red:#d8422e;--line:#563329;--gold:#f5b84b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--cream);font-family:Manrope, sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.13;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.24'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer;color:inherit}.wrap{width:min(1160px,92%);margin:auto;position:relative;z-index:1}
+nav{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #493027;position:relative;z-index:3}
+.logo{font-weight:800;letter-spacing:.18em;font-size:14px}.logo span{color:var(--orange)}.navlinks{display:flex;gap:28px;font-size:12px;color:var(--muted)}.navlinks a:hover{color:var(--orange)}.navright{display:flex;align-items:center;gap:10px;font:10px 'DM Mono',monospace;color:var(--gold);letter-spacing:.12em}.pulse{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 12px var(--orange);animation:pulse 1.8s infinite}
+.hero{min-height:680px;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:25px;padding:55px 0 70px;position:relative}
+.eyebrow{font:10px 'DM Mono',monospace;letter-spacing:.2em;color:var(--orange);text-transform:uppercase;display:flex;align-items:center;gap:12px}.eyebrow:before{content:"";height:1px;width:34px;background:var(--orange)}
+h1{font-size:clamp(62px,8.3vw,112px);line-height:.87;letter-spacing:-.075em;margin:28px 0 24px;font-weight:800}h1 em{font-family:'Playfair Display',serif;color:var(--orange);font-weight:600;letter-spacing:-.07em}.hero p{max-width:410px;color:var(--muted);line-height:1.8;font-size:14px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{border:1px solid var(--line);padding:14px 18px;background:transparent;font-size:11px;letter-spacing:.05em;transition:.25s;display:inline-flex;align-items:center;gap:16px}.btn.primary{background:var(--orange);border-color:var(--orange);color:#1b0e0a;font-weight:800}.btn:hover{transform:translateY(-4px);box-shadow:0 10px 25px #ff702e25}.btn .arrow{font-size:17px}
+.hero-art{height:500px;position:relative;display:grid;place-items:center}
+.sun{position:absolute;width:min(34vw,340px);height:min(34vw,340px);border-radius:50%;background:linear-gradient(145deg,#ffb044,#e74d29 65%,#8e241d);box-shadow:0 0 100px #f15a252c;right:9%;top:8%;animation:float 7s ease-in-out infinite}
+.sun:after{content:"";position:absolute;inset:48% -12% auto;height:2px;background:#301611;box-shadow:0 12px #301611,0 25px #301611,0 38px #301611,0 51px #301611,0 64px #301611,0 77px #301611;opacity:.55}
+.moonline{position:absolute;width:320px;height:440px;border:1px solid #76412e;border-radius:50%;transform:rotate(34deg);right:0;top:4%}.moon2{position:absolute;width:260px;height:390px;border:1px solid #76412e;border-radius:50%;transform:rotate(-34deg);right:10%;top:8%}
+.leaf{position:absolute;font-size:clamp(45px,6vw,78px);filter:drop-shadow(0 15px 15px #0008);animation:leafFloat 6s ease-in-out infinite}.leaf.one{right:10%;top:13%;transform:rotate(24deg)}.leaf.two{left:7%;bottom:18%;font-size:90px;animation-delay:-2s}.leaf.three{right:5%;bottom:9%;font-size:58px;animation-delay:-3.5s}.leaf.four{left:22%;top:14%;font-size:40px;animation-delay:-1s}
+.art-stamp{position:absolute;bottom:9%;left:8%;border:1px solid #8b4b35;padding:14px 18px;background:#170e0be8;backdrop-filter:blur(8px);font:10px 'DM Mono',monospace;letter-spacing:.13em;line-height:1.9;transform:rotate(-5deg)}.art-stamp strong{color:var(--orange);font-size:18px;display:block}
+.vertical{position:absolute;right:-20px;top:44%;writing-mode:vertical-rl;font:9px 'DM Mono',monospace;letter-spacing:.2em;color:#765144}
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:#1a100e;transform:rotate(-1deg) scale(1.02);padding:14px 0}.ticker-track{display:flex;white-space:nowrap;gap:35px;animation:marquee 26s linear infinite;font:11px 'DM Mono',monospace;letter-spacing:.16em;color:var(--gold)}.ticker b{color:var(--orange);font-size:16px}
+.section{padding:100px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:35px}.kicker{font:10px 'DM Mono',monospace;letter-spacing:.2em;color:var(--orange)}h2{font-size:clamp(34px,5vw,58px);letter-spacing:-.06em;line-height:1;margin:12px 0 0}h2 em{font-family:'Playfair Display',serif;font-weight:600;color:var(--orange)}.head-note{color:var(--muted);font-size:12px;max-width:230px;line-height:1.7}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.card{background:linear-gradient(145deg,#251815,#1a1110);border:1px solid #503126;min-height:250px;padding:23px;position:relative;overflow:hidden;transition:.3s}.card:hover{border-color:var(--orange);transform:translateY(-6px);background:#2b1914}.card:after{content:attr(data-num);position:absolute;right:10px;bottom:-25px;font-size:120px;letter-spacing:-.1em;color:#ffffff06;font-weight:800;pointer-events:none}.card-top{display:flex;justify-content:space-between;font:10px 'DM Mono',monospace;color:var(--muted)}.icon{font-size:33px;margin:27px 0 14px}.card h3{font-size:18px;margin:0 0 8px}.card p{font-size:12px;color:var(--muted);line-height:1.7;margin:0;max-width:260px}.card .mini{position:absolute;right:20px;bottom:18px;color:var(--orange);font-size:20px}
+.plan{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:start}.plan-intro{position:sticky;top:30px}.plan-intro p{font-size:13px;line-height:1.9;color:var(--muted);max-width:310px}.progress-box{margin-top:25px;padding:18px;border:1px solid var(--line);background:#1b1110}.progress-label{display:flex;justify-content:space-between;font:10px 'DM Mono',monospace;color:var(--muted)}.progress-track{height:4px;background:#42261e;margin-top:13px}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--gold));transition:width .4s}
+.checklist{border-top:1px solid var(--line)}.task{display:flex;align-items:center;gap:17px;padding:20px 5px;border-bottom:1px solid var(--line);cursor:pointer;transition:.2s}.task:hover{padding-left:12px;background:#211411}.check{width:24px;height:24px;border:1px solid #87503c;display:grid;place-items:center;flex-shrink:0;color:#1b100c;transition:.2s}.task.done .check{background:var(--orange);border-color:var(--orange)}.task.done .task-title{text-decoration:line-through;color:#80695d}.task-text{flex:1}.task-title{font-size:14px;font-weight:700}.task-sub{font-size:11px;color:var(--muted);margin-top:5px}.task-time{font:10px 'DM Mono',monospace;color:var(--orange)}
+.quote{margin:35px 0 0;padding:26px;border-left:2px solid var(--orange);background:#201411;font-family:'Playfair Display',serif;font-size:21px;line-height:1.5}.quote small{display:block;font:10px 'DM Mono',monospace;color:var(--muted);margin-top:14px;letter-spacing:.1em}
+.mood{border:1px solid var(--line);background:radial-gradient(ellipse at 80% 20%,#4c2118 0%,transparent 40%),#1c1210;padding:clamp(25px,5vw,55px);display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}.mood h2{font-size:clamp(32px,4vw,50px)}.mood p{color:var(--muted);font-size:13px;line-height:1.8;max-width:390px}.mood-buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}.mood-btn{border:1px solid #654031;background:#241612;padding:12px 14px;font-size:12px;transition:.2s}.mood-btn:hover,.mood-btn.active{background:var(--orange);border-color:var(--orange);color:#1b0e0a;transform:scale(1.04)}.mood-result{border:1px solid #59382b;min-height:155px;padding:25px;display:flex;flex-direction:column;justify-content:center;background:#180f0d}.mood-result .big{font-size:35px}.mood-result strong{font-size:16px;margin:10px 0 5px}.mood-result span{font-size:12px;line-height:1.7;color:var(--muted)}
+footer{padding:35px 0 45px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;align-items:center;color:var(--muted);font:10px 'DM Mono',monospace;letter-spacing:.1em}.footer-mark{color:var(--orange);font-weight:500}
+.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);background:var(--orange);color:#1b0e0a;padding:13px 20px;font-size:12px;font-weight:800;z-index:10;opacity:0;pointer-events:none;transition:.3s;box-shadow:0 10px 40px #0008}.toast.show{opacity:1;transform:translate(-50%,0)}
+#leafLayer{position:fixed;inset:0;pointer-events:none;z-index:5;overflow:hidden}.falling{position:absolute;top:-50px;animation:fall linear forwards;font-size:22px}
+@keyframes pulse{50%{opacity:.4;box-shadow:0 0 3px var(--orange)}}@keyframes float{50%{transform:translateY(-13px) rotate(3deg)}}@keyframes leafFloat{50%{translate:0 -14px;rotate:10deg}}@keyframes marquee{to{transform:translateX(-50%)}}@keyframes fall{to{transform:translate(var(--drift),110vh) rotate(720deg);opacity:.1}}
+@media(max-width:760px){.navlinks{display:none}.hero{grid-template-columns:1fr;padding-top:65px;gap:0}.hero-art{height:330px;grid-row:1}.sun{width:235px;height:235px;right:20%;top:7%}.moonline{width:230px;height:300px;right:12%}.moon2{width:190px;height:280px;right:18%}.hero-copy{grid-row:2}h1{font-size:clamp(64px,16vw,96px);margin-top:20px}.vertical{right:0}.cards{grid-template-columns:1fr}.card{min-height:220px}.section{padding:70px 0}.section-head{align-items:start;flex-direction:column}.plan{grid-template-columns:1fr;gap:30px}.plan-intro{position:static}.mood{grid-template-columns:1fr;gap:25px}.art-stamp{bottom:2%;left:3%}footer{flex-direction:column;align-items:flex-start}.hero p{font-size:13px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="leafLayer"></div>
+<div class="wrap">
+<nav><a class="logo" href="#">AFTER<span>GLOW</span>®</a><div class="navlinks"><a href="#vibe">атмосфера</a><a href="#ideas">идеи</a><a href="#plan">мой план</a><a href="#mood">настроение</a></div><div class="navright"><i class="pulse"></i> AUTUMN MODE: ON</div></nav>
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">сезон тёплых воспоминаний / 001</div>
+    <h1>HELLO,<br><em>autumn</em><br>BREAK.</h1>
+    <p>Никаких будильников. Воздух пахнет дождём, в наушниках — любимый трек, а впереди целая маленькая жизнь длиной в каникулы.</p>
+    <div class="actions"><a class="btn primary" href="#ideas">Поймать вайб <span class="arrow">↗</span></a><button class="btn" id="rainBtn">Устроить листопад <span class="arrow">✳</span></button></div>
+  </div>
+  <div class="hero-art" id="vibe"><div class="moonline"></div><div class="moon2"></div><div class="sun"></div><span class="leaf one">🍁</span><span class="leaf two">🍂</span><span class="leaf three">🍁</span><span class="leaf four">✦</span><div class="art-stamp">FIELD NOTES / 2026<strong>STAY A LITTLE</strong>IN THE MOMENT.</div><div class="vertical">THE ART OF DOING NOTHING — SINCE FOREVER</div></div>
+</section>
+</div>
+<div class="ticker"><div class="ticker-track"><span>HOT TEA</span><b>✳</b><span>RAINY WINDOWS</span><b>✳</b><span>NO ALARMS</span><b>✳</b><span>YOUR OWN PACE</span><b>✳</b><span>GOLDEN LEAVES</span><b>✳</b><span>HOT TEA</span><b>✳</b><span>RAINY WINDOWS</span><b>✳</b><span>NO ALARMS</span><b>✳</b><span>YOUR OWN PACE</span><b>✳</b><span>GOLDEN LEAVES</span><b>✳</b></div></div>
+<div class="wrap">
+<section class="section" id="ideas">
+ <div class="section-head"><div><div class="kicker">01 / YOUR LITTLE ESCAPE</div><h2>Каникулы — это <em>искусство</em><br>ничего не спешить.</h2></div><div class="head-note">Выбери настроение. Или не выбирай — сегодня можно всё.</div></div>
+ <div class="cards">
+  <article class="card" data-num="01"><div class="card-top"><span>01 — SLOW LIVING</span><span>01:00 PM</span></div><div class="icon">☕</div><h3>Медленное утро</h3><p>Чай или какао, плед, любимая музыка и полное отсутствие планов.</p><span class="mini">↗</span></article>
+  <article class="card" data-num="02"><div class="card-top"><span>02 — OUTSIDE</span><span>04:30 PM</span></div><div class="icon">🌧️</div><h3>Город после дождя</h3><p>Наушники, длинный маршрут и фотографии, которые поймут только ты.</p><span class="mini">↗</span></article>
+  <article class="card" data-num="03"><div class="card-top"><span>03 — NIGHT SHIFT</span><span>09:17 PM</span></div><div class="icon">🎧</div><h3>Ночь для себя</h3><p>Пересмотреть любимый фильм, собрать плейлист или просто помечтать.</p><span class="mini">↗</span></article>
+  <article class="card" data-num="04"><div class="card-top"><span>04 — CREATE</span><span>ANYTIME</span></div><div class="icon">📓</div><h3>Сделать что-то своё</h3><p>Коллаж, мини-сайт, рисунок или список желаний на новый сезон.</p><span class="mini">↗</span></article>
+  <article class="card" data-num="05"><div class="card-top"><span>05 — LITTLE JOYS</span><span>NO RULES</span></div><div class="icon">🍂</div><h3>Маленькое приключение</h3><p>Зайти в новое место, найти красивую улицу или попробовать новый вкус.</p><span class="mini">↗</span></article>
+  <article class="card" data-num="06"><div class="card-top"><span>06 — RESET</span><span>DAY ONE</span></div><div class="icon">🕯️</div><h3>Перезагрузка</h3><p>Уютная комната, чистая постель и никаких требований к себе.</p><span class="mini">↗</span></article>
+ </div>
+</section>
+<section class="section plan" id="plan">
+ <div class="plan-intro"><div class="kicker">02 / THE SOFT BUCKET LIST</div><h2>Мой маленький<br><em>план.</em></h2><p>Не чек-лист продуктивности. Просто идеи, чтобы каникулы ощущались как твои. Отмечай сделанное — прогресс сохранится, пока открыта эта страница.</p>
+ <div class="progress-box"><div class="progress-label"><span>ОСЕННИЙ ПРОГРЕСС</span><span id="progressText">0 / 6</span></div><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div></div>
+ <div class="quote">«Иногда лучший план — дать жизни немного случиться.»<small>— ЗАМЕТКА СЕБЕ НА ЭТУ ОСЕНЬ</small></div></div>
+ <div class="checklist">
+  <div class="task"><div class="check"></div><div class="task-text"><div class="task-title">Собрать осенний плейлист</div><div class="task-sub">Треки, которые звучат как октябрь.</div></div><div class="task-time">15 MIN</div></div>
+  <div class="task"><div class="check"></div><div class="task-text"><div class="task-title">Устроить вечер любимого фильма</div><div class="task-sub">Плед, вкусняшки и режим «не беспокоить».</div></div><div class="task-time">2 H</div></div>
+  <div class="task"><div class="check"></div><div class="task-text"><div class="task-title">Сделать 5 атмосферных фото</div><div class="task-sub">Свет, тени, листья, отражения в окнах.</div></div><div class="task-time">ANYTIME</div></div>
+  <div class="task"><div class="check"></div><div class="task-text"><div class="task-title">Попробовать что-то новое</div><div class="task-sub">Рецепт, маршрут, занятие — что угодно.</div></div><div class="task-time">YOUR CALL</div></div>
+  <div class="task"><div class="check"></div><div class="task-text"><div class="task-title">Провести время с близким человеком</div><div class="task-sub">Без спешки. Просто быть рядом.</div></div><div class="task-time">IRL</div></div>
+  <div class="task"><div class="check"></div><div class="task-text"><div class="task-title">Оставить один день совершенно пустым</div><div class="task-sub">И посмотреть, чего захочется именно тебе.</div></div><div class="task-time">∞</div></div>
+ </div>
+</section>
+<section class="section" id="mood">
+ <div class="mood"><div><div class="kicker">03 / CHECK YOUR WEATHER</div><h2>Какой у тебя<br><em>сегодня вайб?</em></h2><p>Нажми на настроение — подберём маленькую идею на сегодня. Никаких правильных ответов.</p>
+ <div class="mood-buttons"><button class="mood-btn" data-mood="cozy">☕ уют</button><button class="mood-btn" data-mood="chaos">🔥 движ</button><button class="mood-btn" data-mood="blue">🌧️ грустинка</button><button class="mood-btn" data-mood="dream">🌙 мечты</button></div></div>
+ <div class="mood-result" id="moodResult"><div class="big">🍁</div><strong>Твой момент начинается здесь</strong><span>Выбери настроение слева — и получи идею для маленького осеннего момента.</span></div></div>
+</section>
+<footer><div>© AFTERGLOW — AUTUMN EDITION / 2026</div><div>СДЕЛАНО ИЗ <span class="footer-mark">☕ ТЕПЛА</span> И НЕМНОГО МЕЛАНХОЛИИ</div></footer>
+</div>
+<div class="toast" id="toast">Листья летят — лови момент 🍂</div>
+<script>
+const toast=document.getElementById('toast');let toastTimer;
+function showToast(text){toast.textContent=text;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2300)}
+function leaves(count=30){const layer=document.getElementById('leafLayer');const icons=['🍂','🍁','✦'];for(let i=0;i<count;i++){const el=document.createElement('span');el.className='falling';el.textContent=icons[Math.floor(Math.random()*icons.length)];el.style.left=Math.random()*100+'%';el.style.setProperty('--drift',(Math.random()*240-120)+'px');el.style.animationDuration=(3+Math.random()*4)+'s';el.style.animationDelay=(Math.random()*1.2)+'s';el.style.fontSize=(15+Math.random()*20)+'px';layer.appendChild(el);setTimeout(()=>el.remove(),8500)}}
+document.getElementById('rainBtn').addEventListener('click',()=>{leaves(48);showToast('Листопад активирован. Поймай свой момент 🍁')});
+document.querySelectorAll('.card').forEach(card=>card.addEventListener('click',()=>{card.classList.toggle('selected');card.style.boxShadow=card.classList.contains('selected')?'inset 0 0 0 1px #ff702e, 0 0 35px #ff702e14':'';showToast(card.querySelector('h3').textContent+' — добавлено в настроение ✦')}));
+const tasks=[...document.querySelectorAll('.task')];function updateProgress(){const done=tasks.filter(t=>t.classList.contains('done')).length;document.getElementById('progressText').textContent=done+' / '+tasks.length;document.getElementById('progressFill').style.width=(done/tasks.length*100)+'%';if(done===tasks.length)showToast('Ты собрала свою осень. Это красиво 🍂')}
+tasks.forEach(task=>task.addEventListener('click',()=>{task.classList.toggle('done');task.querySelector('.check').textContent=task.classList.contains('done')?'✓':'';updateProgress()}));
+const moods={cozy:{icon:'🫖',title:'Замедлись и согрейся',text:'Сделай любимый горячий напиток, включи спокойный плейлист и устрой себе 20 минут без телефона.'},chaos:{icon:'⚡',title:'Пора за маленьким приключением',text:'Выбери незнакомую улицу, новое занятие или позови кого-нибудь на спонтанную прогулку.'},blue:{icon:'🌧️',title:'Можно просто погрустить',text:'Не нужно срочно становиться счастливее. Укутайся, включи знакомый фильм и отнесись к себе помягче.'},dream:{icon:'🌙',title:'Оставь место мечтам',text:'Запиши три вещи, которые хочется попробовать до конца года. Не обещания — просто возможности.'}};
+document.querySelectorAll('.mood-btn').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.mood-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const m=moods[btn.dataset.mood];document.getElementById('moodResult').innerHTML=`<div class="big">${m.icon}</div><strong>${m.title}</strong><span>${m.text}</span>`;showToast('Настроение принято ✦')}));
+</script>
+</body>
+</html>
